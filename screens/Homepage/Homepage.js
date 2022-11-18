@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
-const Homepage = () => {
+const Homepage = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={{ fontFamily: 'Montserrat-SemiBold' }}>
