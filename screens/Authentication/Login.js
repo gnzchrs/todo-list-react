@@ -31,7 +31,7 @@ const Login = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={s.defaultContainer}>
       <View
         style={{
           flex: 2,
@@ -94,9 +94,9 @@ const Login = ({ navigation }) => {
           }}
         >
           <Text style={{ ...s.input, color: 'rgba(39,39,39,.4)' }}>
-            Don't have an account?{' '}
+            Don't have an account?
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
             <Text style={{ ...s.input, color: '#F79E89' }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
@@ -108,9 +108,5 @@ const Login = ({ navigation }) => {
 export default Login
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
+  container: {},
 })
