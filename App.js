@@ -6,15 +6,21 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import { useFonts } from 'expo-font'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { NavigationContainer } from '@react-navigation/native'
 
 //screens
 import Homepage from './screens/Homepage/Homepage'
 import Login from './screens/Authentication/Login'
 
 const App = () => {
+  const Stack = createNativeStackNavigator()
+
   const [loaded] = useFonts({
     'Montserrat-Regular': require('./assets/font/Montserrat-Regular.ttf'),
     'Montserrat-SemiBold': require('./assets/font/Montserrat-SemiBold.ttf'),
+    'Montserrat-Medium': require('./assets/font/Montserrat-Medium.ttf'),
+
     'BebasNeue-Regular': require('./assets/font/BebasNeue-Regular.ttf'),
   })
 
@@ -25,11 +31,22 @@ const App = () => {
       </View>
     )
   }
+  const Auth = () => {
+    return (
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Homepage} />
+      </Stack.Navigator>
+    )
+  }
+
   return (
-    <View style={styles.container}>
-      <StatusBar hidden={false} backgroundColor="#F79E89" />
-      <Login />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <StatusBar hidden={false} backgroundColor="#F79E89" />
+        <Auth />
+      </View>
+    </NavigationContainer>
   )
 }
 
