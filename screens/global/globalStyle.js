@@ -13,6 +13,11 @@ module.exports = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 10,
   },
+  defaultContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
 
   input: {
     fontFamily: 'Montserrat-Regular',
