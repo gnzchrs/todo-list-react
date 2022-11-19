@@ -34,7 +34,9 @@ const Settings = ({ navigation }) => {
           </View>
           <View style={styles.line}>
             <Text style={{ ...s.input }}>Password</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ChangePassword')}
+            >
               <Text style={{ ...s.input, color: '#F79E89' }}>
                 Change Password
               </Text>

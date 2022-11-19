@@ -13,6 +13,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import Homepage from './screens/Homepage/Homepage'
 import Login from './screens/Authentication/Login'
 import Signup from './screens/Authentication/Signup'
+import ChangePassword from './screens/Authentication/ChangePassword'
+
 import Settings from './screens/Settings/Settings'
 
 const App = () => {
@@ -22,7 +24,6 @@ const App = () => {
     'Montserrat-Regular': require('./assets/font/Montserrat-Regular.ttf'),
     'Montserrat-SemiBold': require('./assets/font/Montserrat-SemiBold.ttf'),
     'Montserrat-Medium': require('./assets/font/Montserrat-Medium.ttf'),
-
     'BebasNeue-Regular': require('./assets/font/BebasNeue-Regular.ttf'),
   })
 
@@ -35,12 +36,14 @@ const App = () => {
   }
   const Auth = () => {
     return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* animation: 'none' */}
+      <Stack.Navigator
+        screenOptions={{ headerShown: false, animation: 'none' }}
+      >
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Home" component={Homepage} />
         <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="ChangePassword" component={ChangePassword} />
       </Stack.Navigator>
     )
   }

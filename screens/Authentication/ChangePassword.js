@@ -13,31 +13,14 @@ import { Feather } from 'react-native-vector-icons'
 const s = require('../global/globalStyle')
 import Logo from './components/Logo'
 
-const Signup = ({ navigation }) => {
-  const [email, setEmail] = useState('')
+const ChangePassword = ({ navigation }) => {
   const [password, setPassword] = useState('')
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
 
   return (
     <View style={s.defaultContainer}>
       <Logo />
       <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-        <View style={s.inputView}>
-          <TextInput
-            style={[s.input, s.spacing]}
-            placeholder={'Email'}
-            onChangeText={setEmail}
-            value={email}
-          />
-        </View>
-        <View style={s.inputView}>
-          <TextInput
-            style={[s.input, s.spacing]}
-            placeholder={'Full Name'}
-            onChangeText={setEmail}
-            value={email}
-          />
-        </View>
         <View
           style={[
             s.inputView,
@@ -93,30 +76,18 @@ const Signup = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <Button
-          type={'primary'}
-          style={{ marginTop: 15 }}
-          text={'SIGN UP'}
-          onPress={() => navigation.navigate('Home')}
-        />
-        <View
-          style={{
-            paddingVertical: 20,
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
+          onPress={() => {
+            alert('are you Sure?')
           }}
-        >
-          <Text style={{ ...s.xxsRegular, color: 'rgba(39,39,39,.4)' }}>
-            Have an account?{' '}
-          </Text>
-          <TouchableOpacity onPress={() => alert([{ type: 'login-password' }])}>
-            <Text style={{ ...s.xxsRegular, color: '#F79E89' }}>Log in</Text>
-          </TouchableOpacity>
-        </View>
+          type={'primary'}
+          style={{ marginTop: 15, marginBottom: 60 }}
+          text={'CHANGE PASSWORD'}
+        />
       </View>
     </View>
   )
 }
-export default Signup
+
+export default ChangePassword
 
 const styles = StyleSheet.create({})
