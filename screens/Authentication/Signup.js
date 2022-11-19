@@ -59,7 +59,7 @@ const Signup = ({ navigation }) => {
           />
           <TouchableOpacity onPress={() => setVisible(!visible)}>
             <Feather
-              name={visible ? 'eye' : 'eye-off'}
+              name={visible ? 'eye-off' : 'eye'}
               size={24}
               color={'#949494'}
             />
@@ -86,7 +86,7 @@ const Signup = ({ navigation }) => {
           />
           <TouchableOpacity onPress={() => setVisible(!visible)}>
             <Feather
-              name={visible ? 'eye' : 'eye-off'}
+              name={visible ? 'eye-off' : 'eye'}
               size={24}
               color={'#949494'}
             />
