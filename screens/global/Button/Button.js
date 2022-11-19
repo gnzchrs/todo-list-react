@@ -7,6 +7,8 @@ import {
   Dimensions,
 } from 'react-native'
 import { Feather } from 'react-native-vector-icons'
+import { RFValue as rf } from 'react-native-responsive-fontsize'
+
 const windowWidth = Dimensions.get('window').width
 const s = require('../../global/globalStyle')
 
@@ -30,7 +32,11 @@ const Button = (props) => {
           style={{ ...styles.icon, ...props?.style }}
           onPress={() => props.onPress()}
         >
-          <Feather name={props.iconName} color={'#272727'} size={24} />
+          <Feather
+            name={props.iconName}
+            color={props?.iconColor ?? '#272727'}
+            size={props?.iconSize ?? rf(24)}
+          />
         </TouchableOpacity>
       )}
     </View>
@@ -49,7 +55,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
-    padding: 5,
     borderRadius: 50,
   },
 })

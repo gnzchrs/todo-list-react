@@ -13,14 +13,14 @@ const Header = (props) => {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
+            paddingLeft: 5,
           }}
         >
-          <Image source={require('../../../assets/icon/header.png')} />
-          <Button
-            type={'icon'}
-            iconName={'settings'}
-            onPress={() => alert('settings clicked')}
+          <Image
+            style={{}}
+            source={require('../../../assets/icon/header.png')}
           />
+          <Button type={'icon'} iconName={'settings'} onPress={props.onPress} />
         </View>
       )}
     </View>
@@ -31,6 +31,7 @@ export default Header
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 5,
     paddingVertical: 15,
   },
 })

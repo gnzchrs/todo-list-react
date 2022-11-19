@@ -15,6 +15,8 @@ module.exports = StyleSheet.create({
     marginVertical: 10,
   },
   defaultContainer: {
+    backgroundColor: 'white',
+
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
@@ -32,6 +34,16 @@ module.exports = StyleSheet.create({
     fontFamily: 'Montserrat-Regular',
     color: '#949494',
     fontSize: rf(16),
+  },
+  inputSemiBold: {
+    fontFamily: 'Montserrat-SemiBold',
+    color: '#949494',
+    fontSize: rf(16),
+  },
+  bebasRegular: {
+    fontFamily: 'BebasNeue-Regular',
+    color: '#949494',
+    fontSize: rf(36),
   },
   xxsRegular: {
     fontFamily: 'Montserrat-Regular',

@@ -99,5 +99,5 @@ const Login = ({ navigation }) => {
 export default Login
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { backgroundColor: 'white' },
 })
