@@ -8,9 +8,8 @@ import {
   TextInput,
 } from 'react-native'
 import { Feather } from 'react-native-vector-icons'
-
 import Button from '../global/Button/Button'
-
+import Logo from './components/Logo'
 const s = require('../global/globalStyle')
 
 const Login = ({ navigation }) => {
@@ -32,19 +31,8 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={s.defaultContainer}>
-      <View
-        style={{
-          flex: 2,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Image
-          source={require('../../assets/icon/login.png')}
-          style={{ position: 'absolute' }}
-        />
-      </View>
-      <View style={{ flex: 1 }}>
+      <Logo />
+      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
         <View style={s.inputView}>
           <TextInput
             style={[s.input, s.spacing]}
@@ -97,7 +85,9 @@ const Login = ({ navigation }) => {
             Don't have an account?
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-            <Text style={{ ...s.input, color: '#F79E89' }}>Sign Up</Text>
+            <Text style={{ ...s.input, color: '#F79E89', paddingLeft: 5 }}>
+              Sign Up
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

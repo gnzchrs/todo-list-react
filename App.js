@@ -34,7 +34,9 @@ const App = () => {
   }
   const Auth = () => {
     return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator
+        screenOptions={{ headerShown: false, animation: 'none' }}
+      >
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Home" component={Homepage} />
