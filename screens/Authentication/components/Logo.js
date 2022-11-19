@@ -11,7 +11,7 @@ const Logo = () => {
     >
       <Image
         source={require('../../../assets/icon/login.png')}
-        style={{ position: 'absolute' }}
+        style={{ position: 'absolute', bottom: '15%' }}
       />
     </View>
   )

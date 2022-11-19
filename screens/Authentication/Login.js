@@ -8,6 +8,7 @@ import {
   TextInput,
 } from 'react-native'
 import { Feather } from 'react-native-vector-icons'
+import { RFValue as rf } from 'react-native-responsive-fontsize'
 import Button from '../global/Button/Button'
 import Logo from './components/Logo'
 const s = require('../global/globalStyle')
@@ -65,7 +66,7 @@ const Login = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <TouchableOpacity style={{ alignItems: 'flex-end' }}>
-          <Text style={s.input}>Forgot Password?</Text>
+          <Text style={{ ...s.xxsRegular }}>Forgot Password?</Text>
         </TouchableOpacity>
         <Button
           type={'primary'}
@@ -81,11 +82,11 @@ const Login = ({ navigation }) => {
             alignItems: 'center',
           }}
         >
-          <Text style={{ ...s.input, color: 'rgba(39,39,39,.4)' }}>
+          <Text style={{ ...s.xxsRegular, color: 'rgba(39,39,39,.4)' }}>
             Don't have an account?
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-            <Text style={{ ...s.input, color: '#F79E89', paddingLeft: 5 }}>
+            <Text style={{ ...s.xxsRegular, color: '#F79E89', paddingLeft: 5 }}>
               Sign Up
             </Text>
           </TouchableOpacity>

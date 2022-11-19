@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 const windowWidth = Dimensions.get('window').width
+import { RFValue as rf } from 'react-native-responsive-fontsize'
 
 module.exports = StyleSheet.create({
   //components
@@ -19,18 +20,22 @@ module.exports = StyleSheet.create({
     flex: 1,
   },
 
-  input: {
-    fontFamily: 'Montserrat-Regular',
-    color: '#949494',
-    fontSize: 16,
-  },
   spacing: {
     letterSpacing: 1,
   },
-
   // fonts
   buttonFont: {
     fontFamily: 'Montserrat-Medium',
-    fontSize: 16,
+    fontSize: rf(14),
+  },
+  input: {
+    fontFamily: 'Montserrat-Regular',
+    color: '#949494',
+    fontSize: rf(16),
+  },
+  xxsRegular: {
+    fontFamily: 'Montserrat-Regular',
+    color: '#949494',
+    fontSize: rf(12),
   },
 })

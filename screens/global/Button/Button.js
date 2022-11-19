@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native'
+import { Feather } from 'react-native-vector-icons'
 const windowWidth = Dimensions.get('window').width
 const s = require('../../global/globalStyle')
 
@@ -23,6 +24,15 @@ const Button = (props) => {
           </Text>
         </TouchableOpacity>
       )}
+      {props.type == 'icon' && (
+        <TouchableOpacity
+          delayPressIn={0}
+          style={{ ...styles.icon, ...props?.style }}
+          onPress={() => props.onPress()}
+        >
+          <Feather name={props.iconName} color={'#272727'} size={24} />
+        </TouchableOpacity>
+      )}
     </View>
   )
 }
@@ -37,5 +47,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  icon: {
+    padding: 5,
+    borderRadius: 50,
   },
 })

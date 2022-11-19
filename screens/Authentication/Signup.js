@@ -16,19 +16,7 @@ import Logo from './components/Logo'
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [iconName, setIconName] = useState('eye-off')
   const [visible, setVisible] = useState(false)
-
-  const visiblePassword = (visible) => {
-    if (visible) {
-      setIconName('eye')
-      setVisible(!visible)
-    }
-    if (!visible) {
-      setIconName('eye-off')
-      setVisible(!visible)
-    }
-  }
 
   return (
     <View style={s.defaultContainer}>
@@ -69,7 +57,7 @@ const Signup = ({ navigation }) => {
             autoCorrect={false}
             value={password}
           />
-          <TouchableOpacity onPress={() => visiblePassword(visible)}>
+          <TouchableOpacity onPress={() => setVisible(!visible)}>
             <Feather
               name={visible ? 'eye' : 'eye-off'}
               size={24}
@@ -96,8 +84,12 @@ const Signup = ({ navigation }) => {
             autoCorrect={false}
             value={password}
           />
-          <TouchableOpacity onPress={() => visiblePassword(visible)}>
-            <Feather name={iconName} size={24} color={'#949494'} />
+          <TouchableOpacity onPress={() => setVisible(!visible)}>
+            <Feather
+              name={visible ? 'eye' : 'eye-off'}
+              size={24}
+              color={'#949494'}
+            />
           </TouchableOpacity>
         </View>
         <Button
@@ -114,11 +106,11 @@ const Signup = ({ navigation }) => {
             alignItems: 'center',
           }}
         >
-          <Text style={{ ...s.input, color: 'rgba(39,39,39,.4)' }}>
+          <Text style={{ ...s.xxsRegular, color: 'rgba(39,39,39,.4)' }}>
             Have an account?{' '}
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={{ ...s.input, color: '#F79E89' }}>Log in</Text>
+            <Text style={{ ...s.xxsRegular, color: '#F79E89' }}>Log in</Text>
           </TouchableOpacity>
         </View>
       </View>
