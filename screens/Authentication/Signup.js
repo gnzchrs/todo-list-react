@@ -70,7 +70,11 @@ const Signup = ({ navigation }) => {
             value={password}
           />
           <TouchableOpacity onPress={() => visiblePassword(visible)}>
-            <Feather name={iconName} size={24} color={'#949494'} />
+            <Feather
+              name={visible ? 'eye' : 'eye-off'}
+              size={24}
+              color={'#949494'}
+            />
           </TouchableOpacity>
         </View>
         <View
