@@ -13,6 +13,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import Homepage from './screens/Homepage/Homepage'
 import Login from './screens/Authentication/Login'
 import Signup from './screens/Authentication/Signup'
+import Settings from './screens/Settings/Settings'
 
 const App = () => {
   const Stack = createNativeStackNavigator()
@@ -34,12 +35,12 @@ const App = () => {
   }
   const Auth = () => {
     return (
-      <Stack.Navigator
-        screenOptions={{ headerShown: false, animation: 'none' }}
-      >
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {/* animation: 'none' */}
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Home" component={Homepage} />
+        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     )
   }
