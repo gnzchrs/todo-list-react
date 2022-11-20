@@ -100,6 +100,8 @@ const Homepage = ({ navigation }) => {
         data={data}
         renderItem={homeData}
         keyExtractor={(item) => item.id}
+        style={{ marginBottom: 15, paddingBottom: 10 }}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   )
