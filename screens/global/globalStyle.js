@@ -45,6 +45,12 @@ module.exports = StyleSheet.create({
     color: '#949494',
     fontSize: rf(36),
   },
+
+  xsRegular: {
+    fontFamily: 'Montserrat-Regular',
+    color: '#949494',
+    fontSize: rf(14),
+  },
   xxsRegular: {
     fontFamily: 'Montserrat-Regular',
     color: '#949494',
