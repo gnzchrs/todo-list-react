@@ -109,7 +109,7 @@ const Signup = ({ navigation }) => {
           <Text style={{ ...s.xxsRegular, color: 'rgba(39,39,39,.4)' }}>
             Have an account?{' '}
           </Text>
-          <TouchableOpacity onPress={() => alert([{ type: 'login-password' }])}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={{ ...s.xxsRegular, color: '#F79E89' }}>Log in</Text>
           </TouchableOpacity>
         </View>
