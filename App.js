@@ -39,9 +39,9 @@ const App = () => {
       <Stack.Navigator
         screenOptions={{ headerShown: false, animation: 'none' }}
       >
+        <Stack.Screen name="Home" component={Homepage} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Home" component={Homepage} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
       </Stack.Navigator>
