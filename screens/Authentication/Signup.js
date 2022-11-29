@@ -16,6 +16,7 @@ import Logo from './components/Logo'
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [verPassword, setVerPassword] = useState('')
   const [visible, setVisible] = useState(true)
 
   return (
@@ -80,9 +81,9 @@ const Signup = ({ navigation }) => {
             placeholderTextColor={'#949494'}
             style={[s.input, s.spacing, { width: '90%' }]}
             placeholder={'Confirm Password'}
-            onChangeText={setPassword}
+            onChangeText={setVerPassword}
             autoCorrect={false}
-            value={password}
+            value={verPassword}
           />
           <TouchableOpacity onPress={() => setVisible(!visible)}>
             <Feather
