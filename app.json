@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "todo-list-react",
+    "name": "To Do List",
     "slug": "todo-list-react",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,8 +22,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.gonz.todolist",
+      "versionCode": 1
     },
+
     "web": {
       "favicon": "./assets/favicon.png"
     },
