@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   StyleSheet,
   Text,
@@ -8,17 +9,27 @@ import {
 import { useFonts } from 'expo-font'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
+import SystemNavigationBar from 'react-native-system-navigation-bar'
+import LoadingScreen from './screens/global/LoadingScreen/LoadingScreen'
 
 //screens
 import Homepage from './screens/Homepage/Homepage'
 import Login from './screens/Authentication/Login'
 import Signup from './screens/Authentication/Signup'
 import ChangePassword from './screens/Authentication/ChangePassword'
+import Notes from './screens/Notes/Notes'
 
 import Settings from './screens/Settings/Settings'
 
 const App = () => {
   const Stack = createNativeStackNavigator()
+
+  // useEffect(() => {
+  //   const show = async () => {
+  //     const result = await SystemNavigationBar.navigationHide()
+  //     console.log('Show: ', result) // true or Error Message
+  //   }
+  // }, [])
 
   const [loaded] = useFonts({
     'Montserrat-Regular': require('./assets/font/Montserrat-Regular.ttf'),
@@ -28,11 +39,7 @@ const App = () => {
   })
 
   if (!loaded) {
-    return (
-      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-        <ActivityIndicator size="large" color="#F76C6A" />
-      </View>
-    )
+    return <LoadingScreen />
   }
   const Auth = () => {
     return (
@@ -44,6 +51,7 @@ const App = () => {
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
+        <Stack.Screen name="Notes" component={Notes} />
       </Stack.Navigator>
     )
   }

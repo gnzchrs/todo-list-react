@@ -6,8 +6,8 @@ const s = require('../../global/globalStyle')
 
 const Card = (props) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      {props.type === 'notyet' && (
+    <TouchableOpacity style={styles.container} onPress={props.onPress}>
+      {props.type === false && (
         <View
           style={{
             flex: 1,
@@ -24,28 +24,31 @@ const Card = (props) => {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: 'flex-start',
                 paddingBottom: 10,
               }}
             >
-              <Text style={{ ...s.inputSemiBold, color: 'white' }}>
+              <Text
+                numberOfLines={1}
+                style={{ ...s.inputSemiBold, color: 'white', width: '90%' }}
+              >
                 {props.title}
               </Text>
               <Feather name={'clock'} color={'white'} size={16} />
             </View>
             <Text
-              style={{ ...s.xsRegular, color: 'white', width: '80%' }}
+              style={{ ...s.xxsRegular, color: 'white', width: '80%' }}
               numberOfLines={2}
             >
               {props.description}
             </Text>
           </View>
-          <Text style={{ ...s.xxsRegular, color: 'white' }}>
+          <Text style={{ ...s.xxsRegular, color: 'white', fontSize: 11 }}>
             Created at {props.date}
           </Text>
         </View>
       )}
-      {props.type === 'done' && (
+      {props.type === true && (
         <View
           style={{
             flex: 1,
@@ -62,22 +65,25 @@ const Card = (props) => {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: 'flex-start',
                 paddingBottom: 10,
               }}
             >
-              <Text style={{ ...s.inputSemiBold, color: 'white' }}>
+              <Text
+                numberOfLines={1}
+                style={{ ...s.inputSemiBold, color: 'white', width: '80%' }}
+              >
                 {props.title}
               </Text>
             </View>
             <Text
-              style={{ ...s.xsRegular, color: 'white', width: '80%' }}
+              style={{ ...s.xxsRegular, color: 'white', width: '80%' }}
               numberOfLines={2}
             >
               {props.description}
             </Text>
           </View>
-          <Text style={{ ...s.xxsRegular, color: 'white' }}>
+          <Text style={{ ...s.xxsRegular, color: 'white', fontSize: 11 }}>
             Created at {props.date}
           </Text>
         </View>

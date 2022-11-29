@@ -23,6 +23,41 @@ const Header = (props) => {
           <Button type={'icon'} iconName={'settings'} onPress={props.onPress} />
         </View>
       )}
+      {props.type == 'notes' && (
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Button
+            type={'icon'}
+            iconName={'arrow-left'}
+            onPress={props.navigateBack}
+          />
+          <View style={{ flexDirection: 'row' }}>
+            <Button
+              style={styles.icon}
+              type={'icon'}
+              iconName={'clock'}
+              onPress={props.clock}
+            />
+            <Button
+              style={styles.icon}
+              type={'icon'}
+              iconName={'edit-2'}
+              onPress={props.edit}
+            />
+            <Button
+              style={{ ...styles.icon, marginRight: 0 }}
+              type={'icon'}
+              iconName={'trash-2'}
+              onPress={props.delete}
+            />
+          </View>
+        </View>
+      )}
     </View>
   )
 }
@@ -33,5 +68,8 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 5,
     paddingVertical: 15,
+  },
+  icon: {
+    marginHorizontal: 5,
   },
 })

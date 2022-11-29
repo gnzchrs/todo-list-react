@@ -21,6 +21,7 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
   },
+  con: { flex: 1, paddingHorizontal: '5%', backgroundColor: 'white' },
 
   spacing: {
     letterSpacing: 1,
@@ -44,6 +45,11 @@ module.exports = StyleSheet.create({
     fontFamily: 'BebasNeue-Regular',
     color: '#949494',
     fontSize: rf(36),
+  },
+  bebasSmall: {
+    fontFamily: 'BebasNeue-Regular',
+    color: '#272727',
+    fontSize: rf(26),
   },
 
   xsRegular: {

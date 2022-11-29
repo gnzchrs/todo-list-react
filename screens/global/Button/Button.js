@@ -26,6 +26,17 @@ const Button = (props) => {
           </Text>
         </TouchableOpacity>
       )}
+      {props.type == 'secondary' && (
+        <TouchableOpacity
+          delayPressIn={0}
+          style={{ ...styles.secondary, ...props?.style }}
+          onPress={() => props.onPress()}
+        >
+          <Text style={{ ...s.buttonFont, color: '#F79E89', ...props?.style }}>
+            {props.text}
+          </Text>
+        </TouchableOpacity>
+      )}
       {props.type == 'icon' && (
         <TouchableOpacity
           delayPressIn={0}
@@ -48,6 +59,14 @@ export default Button
 const styles = StyleSheet.create({
   primary: {
     backgroundColor: '#F79E89',
+    width: windowWidth / 1.2,
+    height: 50,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  secondary: {
+    backgroundColor: 'white',
     width: windowWidth / 1.2,
     height: 50,
     borderRadius: 10,
