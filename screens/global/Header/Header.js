@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
 import { Feather } from 'react-native-vector-icons'
 import Button from '../Button/Button'
@@ -39,7 +39,7 @@ const Header = (props) => {
           <View style={{ flexDirection: 'row' }}>
             <Button
               style={styles.icon}
-              type={'icon'}
+              type={props.scheduled ? 'icon' : 'icon-disabled'}
               iconName={'clock'}
               onPress={props.clock}
             />

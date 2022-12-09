@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   StyleSheet,
   Text,
@@ -23,13 +23,6 @@ import Settings from './screens/Settings/Settings'
 
 const App = () => {
   const Stack = createNativeStackNavigator()
-
-  // useEffect(() => {
-  //   const show = async () => {
-  //     const result = await SystemNavigationBar.navigationHide()
-  //     console.log('Show: ', result) // true or Error Message
-  //   }
-  // }, [])
 
   const [loaded] = useFonts({
     'Montserrat-Regular': require('./assets/font/Montserrat-Regular.ttf'),

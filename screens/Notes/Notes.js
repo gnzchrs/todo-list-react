@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { Animated, View, StyleSheet, Text, ScrollView } from 'react-native'
+import {
+  Animated,
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  Image,
+} from 'react-native'
 import Header from '../global/Header/Header'
 const s = require('../global/globalStyle')
 import Modale from '../global/Modal/Modale'
@@ -7,21 +14,27 @@ import Button from '../global/Button/Button'
 
 const Notes = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false)
+  const [scheduled, setScheduled] = useState(true)
 
+  const VV = () => {
+    return <Text>z</Text>
+  }
   return (
     <View style={{ ...s.con }}>
       <Header
         type={'notes'}
         navigateBack={() => navigation.pop()}
         clock={() => alert('click clock')}
-        edit={() => alert('edit')}
+        edit={() => setScheduled(!scheduled)}
         delete={() => setModalVisible(!modalVisible)}
+        scheduled={scheduled}
       />
       <View style={{ marginVertical: 10 }}>
         <Text style={s.bebasSmall}>DESIGN LOGO</Text>
       </View>
 
       <ScrollView
+        showsVerticalScrollIndicator={false}
         style={{
           flex: 1,
           marginVertical: 10,
@@ -63,10 +76,11 @@ const Notes = ({ navigation }) => {
           ex cupidatat veniam. Eiusmod anim incididunt ea in dolor est do
           nostrud enim irure. Occaecat aliqua dolore dolo
         </Text>
+        <Image source={require('../../assets/icon/illustration.png')} />
       </ScrollView>
       <View style={{ alignItems: 'center', paddingVertical: 10 }}>
-        <Text style={{ ...s.xsRegular, color: 'black' }}>
-          Created at 1 Sept 2021
+        <Text style={{ ...s.xxsRegular, color: 'black' }}>
+          Created at 1 Sept 2021 <VV />
         </Text>
       </View>
       <Modale

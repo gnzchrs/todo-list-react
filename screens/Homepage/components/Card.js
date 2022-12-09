@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
 import { Feather } from 'react-native-vector-icons'
 
