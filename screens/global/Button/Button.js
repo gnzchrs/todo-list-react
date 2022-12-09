@@ -50,6 +50,20 @@ const Button = (props) => {
           />
         </TouchableOpacity>
       )}
+      {props.type == 'icon-disabled' && (
+        <TouchableOpacity
+          disabled={true}
+          delayPressIn={0}
+          style={{ ...styles.icon, ...props?.style }}
+          onPress={() => props.onPress()}
+        >
+          <Feather
+            name={props.iconName}
+            color={props?.iconColor ?? 'rgba(71,71,71,.6)'}
+            size={props?.iconSize ?? rf(24)}
+          />
+        </TouchableOpacity>
+      )}
     </View>
   )
 }

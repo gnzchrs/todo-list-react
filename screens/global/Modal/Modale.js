@@ -5,12 +5,14 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
   Dimensions,
 } from 'react-native'
 
 const s = require('../globalStyle')
 const windowHeight = Dimensions.get('screen').height
+const minus = 150
 
 const Modale = (props) => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -23,10 +25,16 @@ const Modale = (props) => {
       transparent={true}
       visible={props.visible}
       onRequestClose={props.onRequestClose}
+      animationInTiming={1}
+      animationOutTiming={1}
     >
       {props.type == 'note' && (
-        <View style={styles.modal}>
-          <TouchableOpacity style={styles.bar} />
+        <View style={{ ...styles.modal, height: windowHeight - minus }}>
+          <TouchableWithoutFeedback onPress={() => console.log('clicked')}>
+            <View style={styles.hover}>
+              <TouchableOpacity style={styles.bar} />
+            </View>
+          </TouchableWithoutFeedback>
           <View style={{ flex: 1 }}>{props.children}</View>
         </View>
       )}
@@ -41,7 +49,7 @@ export default Modale
 const styles = StyleSheet.create({
   modal: {
     alignItems: 'center',
-    height: windowHeight - 150,
+    height: windowHeight - minus,
     width: '100%',
     backgroundColor: '#F79E89',
     position: 'absolute',
@@ -60,5 +68,8 @@ const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,.5)',
+  },
+  hover: {
+    width: '100%',
   },
 })

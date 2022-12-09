@@ -14,27 +14,37 @@ import {
 import { RFValue as rf } from 'react-native-responsive-fontsize'
 import { Entypo, Feather } from 'react-native-vector-icons'
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu'
-
+import * as ImagePicker from 'expo-image-picker'
 import Header from '../global/Header/Header'
 import Button from '../global/Button/Button'
 import Card from './components/Card'
 import LoadingScreen from '../global/LoadingScreen/LoadingScreen'
 import BottomSheet from '../global/BottomSheet/BottomSheet'
 import Modale from '../global/Modal/Modale'
+import CalendarPop from '../global/Calendar/CalendarPop'
+import moment from 'moment'
 
-const windowHeight = Dimensions.get('screen').height
+const windowHeight = Dimensions.get('window').height
+
+//global style import
 const s = require('../global/globalStyle')
 
 const Homepage = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const [visible, setVisible] = useState(false)
-  const hideMenu = () => setVisible(false)
   const [active, setActive] = useState(false)
-  const showMenu = () => setVisible(true)
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
+  const [deadline, setDeadline] = useState('Deadline (Optional)')
+  const [calendarModalVisible, setCalendarModalVisible] = useState(false)
+  const [date, setDate] = useState([])
+  const [currentDate, setCurrentDate] = useState('')
+  const dateFormat = 'd MMM YYYY'
+  const hideMenu = () => setVisible(false) //need to refactor
+  const showMenu = () => setVisible(true) //need to refactor
+  const [image, setImage] = useState(null)
 
   // useEffect(() => {
   //   fetch('https://jsonplaceholder.typicode.com/users/1/todos', {
@@ -45,12 +55,30 @@ const Homepage = ({ navigation }) => {
   //     .catch((error) => console.error(error))
   //     .finally(() => setLoading(false))
   // }, [])
+  // const pickImage = async () => {
+  //   // No permissions request is necessary for launching the image library
+  //   let result = await ImagePicker.launchImageLibraryAsync({
+  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
+  //     allowsEditing: false,
+  //     quality: 1,
+  //   })
+  //   console.log(result)
+  //   if (!result.canceled) {
+  //     setImage(result.assets[0].uri)
+  //   }
+  // }
+
+  const backhadlerModal = () => {
+    setTitle('')
+    setDescription('')
+    setModalVisible(!modalVisible)
+  }
 
   const homeData = ({ item }) => (
     <Card
       type={item.completed}
       title={item.title}
-      date={item.id}
+      date={currentDate}
       description={item.description}
       onPress={() => navigation.navigate('Notes')}
     />
@@ -67,9 +95,12 @@ const Homepage = ({ navigation }) => {
         ...prevTodos,
       ]
     })
+    // setCurrentDate(moment().format(dateFormat))
+    setCurrentDate(moment())
     setModalVisible(!modalVisible)
     setTitle('')
     setDescription('')
+    console.log(currentDate)
   }
   return (
     <View style={styles.container}>
@@ -142,16 +173,21 @@ const Homepage = ({ navigation }) => {
           </MenuItem>
         </Menu>
       </View>
-      <FlatList
-        data={data}
-        renderItem={homeData}
-        keyExtractor={(item) => item.id}
-        style={{ marginBottom: 15, paddingBottom: 10 }}
-        showsVerticalScrollIndicator={false}
-      />
+      {isLoading ? (
+        <LoadingScreen />
+      ) : (
+        <FlatList
+          data={data}
+          renderItem={homeData}
+          keyExtractor={(item) => item.id}
+          style={{ marginBottom: 15, paddingBottom: 10 }}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
+
       <Modale
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(!modalVisible)}
+        onRequestClose={backhadlerModal}
         type={'note'}
       >
         <View style={styles.modalBody}>
@@ -161,7 +197,7 @@ const Homepage = ({ navigation }) => {
                 style={[s.input, s.spacing, styles.inputTxt]}
                 placeholder={'Title'}
                 onChangeText={setTitle}
-                placeholderTextColor={'rgba(255,255,255,.8)'}
+                placeholderTextColor={'rgba(255,255,255,.5)'}
                 selectTextOnFocus={true}
                 value={title}
               />
@@ -178,7 +214,7 @@ const Homepage = ({ navigation }) => {
             <TextInput
               multiline={true}
               autoCorrect={false}
-              placeholderTextColor={'rgba(255,255,255,.8)'}
+              placeholderTextColor={'rgba(255,255,255,.5)'}
               numberOfLines={100}
               style={[
                 s.input,
@@ -195,6 +231,7 @@ const Homepage = ({ navigation }) => {
             />
           </View>
           <TouchableOpacity
+            onPress={() => setCalendarModalVisible(!calendarModalVisible)}
             style={{
               ...s.inputView,
               ...styles.input,
@@ -202,7 +239,7 @@ const Homepage = ({ navigation }) => {
             }}
           >
             <Text style={{ ...s.input, color: 'rgba(255,255,255,.8)' }}>
-              Deadline (Optional)
+              {deadline}
             </Text>
             <Feather
               name={'calendar'}
@@ -211,6 +248,8 @@ const Homepage = ({ navigation }) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={() => alert('prresed')}
+            // onPress={() => setDeadline(date.dateString.toString())}
             style={{ ...s.inputView, ...styles.input, ...styles.optional }}
           >
             <Text style={{ ...s.input, color: 'rgba(255,255,255,.8)' }}>
@@ -225,6 +264,13 @@ const Homepage = ({ navigation }) => {
           />
         </View>
       </Modale>
+      <CalendarPop
+        visible={calendarModalVisible}
+        onRequestClose={() => setCalendarModalVisible(!calendarModalVisible)}
+        backdropHandler={() => setCalendarModalVisible(!calendarModalVisible)}
+        onDayPress={(day) => console.log(today)}
+        initialDate={date.dateString}
+      />
     </View>
   )
 }
@@ -243,7 +289,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: '#F76C6A',
     right: 0,
-    top: windowHeight - 180,
+    top: windowHeight - 100,
     padding: 10,
     zIndex: 1,
   },

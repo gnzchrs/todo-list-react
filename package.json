@@ -1,6 +1,7 @@
 {
   "name": "todo-list-react",
   "version": "1.0.0",
+  "description": "My Todo List Application",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -16,11 +17,15 @@
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.1",
     "@react-navigation/stack": "^6.3.4",
-    "expo": "~47.0.6",
+    "async-storage": "^0.1.0",
+    "expo": "^44.0.6",
     "expo-font": "^11.0.1",
+    "expo-image-picker": "^14.0.2",
     "expo-status-bar": "~1.4.2",
+    "moment": "^2.29.4",
     "react": "18.1.0",
     "react-native": "0.70.5",
+    "react-native-calendars": "^1.1275.0",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-material-menu": "^2.0.0",
     "react-native-modal": "^13.0.1",
@@ -42,5 +47,12 @@
     "eslint-plugin-react": "^7.31.11",
     "prettier": "2.7.1"
   },
-  "private": true
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnzchrs/todo-list-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gnzchrs/todo-list-react/issues"
+  }
 }

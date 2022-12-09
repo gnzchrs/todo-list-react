@@ -26,10 +26,14 @@
       "package": "com.gonz.todolist",
       "versionCode": 1
     },
-
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["@notifee/react-native"]
+    
+    "extra": {
+      "eas": {
+        "projectId": "a1e28800-576d-4b28-b240-b31b48a3392d"
+      }
+    }
   }
 }
