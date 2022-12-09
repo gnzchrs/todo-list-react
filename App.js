@@ -12,6 +12,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
 import LoadingScreen from './screens/global/LoadingScreen/LoadingScreen'
 
+
 //screens
 import Homepage from './screens/Homepage/Homepage'
 import Login from './screens/Authentication/Login'
