@@ -11,7 +11,7 @@ const s = require('../global/globalStyle')
 const Settings = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Header type={'home'} onPress={() => navigation.pop()} />
+      <Header type={'home'} onPress={() => navigation.pop()} iconName={''} />
       <Illustration />
       <View
         style={{
@@ -45,10 +45,10 @@ const Settings = ({ navigation }) => {
         </View>
 
         <Button
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate('Simplified')}
           type="primary"
           style={{ marginBottom: 80, marginTop: 50 }}
-          text={'LOG OUT'}
+          text={'SWITCH TO SIMPLIFIED TODO LIST'}
         />
       </View>
     </View>
