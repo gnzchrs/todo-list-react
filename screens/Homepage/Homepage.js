@@ -30,7 +30,7 @@ const windowHeight = Dimensions.get('window').height
 const s = require('../global/globalStyle')
 
 const Homepage = ({ navigation }) => {
-  const [isLoading, setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(false)
   const [data, setData] = useState([])
   const [visible, setVisible] = useState(false)
   const [active, setActive] = useState(false)
@@ -95,8 +95,8 @@ const Homepage = ({ navigation }) => {
         ...prevTodos,
       ]
     })
-    // setCurrentDate(moment().format(dateFormat))
-    setCurrentDate(moment())
+    setCurrentDate(moment().format(dateFormat))
+    // setCurrentDate(moment())
     setModalVisible(!modalVisible)
     setTitle('')
     setDescription('')
