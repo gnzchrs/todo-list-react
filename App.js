@@ -12,7 +12,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
 import LoadingScreen from './screens/global/LoadingScreen/LoadingScreen'
 
-
 //screens
 import Homepage from './screens/Homepage/Homepage'
 import Login from './screens/Authentication/Login'
@@ -20,16 +19,18 @@ import Signup from './screens/Authentication/Signup'
 import ChangePassword from './screens/Authentication/ChangePassword'
 import Notes from './screens/Notes/Notes'
 
+import Simplified from './screens/SimplifiedTodo/Simplified'
+
 import Settings from './screens/Settings/Settings'
 
 const App = () => {
   const Stack = createNativeStackNavigator()
 
   const [loaded] = useFonts({
-    'Montserrat-Regular': require('./assets/font/Montserrat-Regular.ttf'),
     'Montserrat-SemiBold': require('./assets/font/Montserrat-SemiBold.ttf'),
     'Montserrat-Medium': require('./assets/font/Montserrat-Medium.ttf'),
     'BebasNeue-Regular': require('./assets/font/BebasNeue-Regular.ttf'),
+    'Montserrat-Regular': require('./assets/font/Montserrat-Regular.ttf'),
   })
 
   if (!loaded) {
@@ -46,6 +47,7 @@ const App = () => {
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
         <Stack.Screen name="Notes" component={Notes} />
+        <Stack.Screen name="Simplified" component={Simplified} />
       </Stack.Navigator>
     )
   }
