@@ -47,12 +47,5 @@
     "eslint-plugin-react": "^7.31.11",
     "prettier": "2.7.1"
   },
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gnzchrs/todo-list-react.git"
-  },
-  "bugs": {
-    "url": "https://github.com/gnzchrs/todo-list-react/issues"
-  }
+  "private": false
 }
