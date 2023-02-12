@@ -45,7 +45,8 @@ const Settings = ({ navigation }) => {
         </View>
 
         <Button
-          onPress={() => navigation.navigate('Simplified')}
+          // onPress={() => navigation.navigate('Simplified')}
+          onPress={() => console.log('clicked')}
           type="primary"
           style={{ marginBottom: 80, marginTop: 50 }}
           text={'SWITCH TO SIMPLIFIED TODO LIST'}

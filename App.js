@@ -19,7 +19,7 @@ import Signup from './screens/Authentication/Signup'
 import ChangePassword from './screens/Authentication/ChangePassword'
 import Notes from './screens/Notes/Notes'
 
-import Simplified from './screens/SimplifiedTodo/Simplified'
+// import Simplified from './screens/SimplifiedTodo/Simplified'
 
 import Settings from './screens/Settings/Settings'
 
@@ -47,7 +47,7 @@ const App = () => {
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
         <Stack.Screen name="Notes" component={Notes} />
-        <Stack.Screen name="Simplified" component={Simplified} />
+        {/* <Stack.Screen name="Simplified" component={Simplified} /> */}
       </Stack.Navigator>
     )
   }
